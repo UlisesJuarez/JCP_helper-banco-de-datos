@@ -1,0 +1,302 @@
+{% block content %}
+<link rel="stylesheet" type="text/css"
+    href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <link  href="{{url_for('static',filename='css/style.css')}}" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"  integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+
+</head>
+
+<body class="index-page bg-gray-200">
+
+  <div class="container position-sticky z-index-sticky top-0">
+    <div class="row">
+      <div class="col-12">
+        <nav
+          class="navbar navbar-expand-lg  blur border-radius-xl top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
+          <div class="container-fluid px-0">
+            <a class="navbar-brand font-weight-bolder ms-sm-3" href="#"
+              rel="tooltip" title="JCP_helper logo" data-placement="bottom" target="_blank">
+              JCP HELPER API
+            </a>
+            <button class="navbar-toggler shadow-none ms-2" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon mt-2">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+              </span>
+            </button>
+            <div class="collapse navbar-collapse pt-3 pb-2 py-lg-0 w-100" id="navigation">
+              <ul class="navbar-nav navbar-nav-hover ms-auto">
+                <li class="nav-item dropdown dropdown-hover mx-2">
+                  <a class="nav-link ps-2 d-flex cursor-pointer align-items-center" id="dropdownMenuPages"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2 text-md">dashboard</i>
+                    Preguntas
+                    <img src="{{url_for('static',filename='img/down-arrow-dark.svg')}}" alt="down-arrow" class="arrow ms-auto ms-md-2">
+                  </a>
+                  <div class="dropdown-menu dropdown-menu-animation ms-n3 dropdown-md p-3 border-radius-xl mt-0 mt-lg-3"
+                    aria-labelledby="dropdownMenuPages">
+                    <div class="d-none d-lg-block">
+                      <a href="/preguntas?lenguaje=Java" class="dropdown-item border-radius-md">
+                        <span>Java</span>
+                      </a>
+                      <a href="/preguntas?lenguaje=C" class="dropdown-item border-radius-md">
+                        <span>C</span>
+                      </a>
+                      <a href="/preguntas?lenguaje=Python" class="dropdown-item border-radius-md">
+                        <span>Python</span>
+                      </a>
+                      <h6 class="dropdown-header text-dark font-weight-bolder d-flex align-items-center px-1 mt-3">
+                        General
+                      </h6>
+                      <a href="/preguntas" class="dropdown-item border-radius-md">
+                        <span>Ver todo</span>
+                      </a>
+                    </div>
+                  </div>
+                </li>
+
+                <li class="nav-item ms-lg-auto">
+                  <a href="#" class="nav-link ps-2 d-flex cursor-pointer align-items-center" target="_blank" id="dropdownMenuDocs"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    <i class="material-icons opacity-6 me-2 text-md">article</i>
+                    Docs
+                  </a>
+                </li>
+                <li class="nav-item ms-lg-auto">
+                  <a class="nav-link nav-link-icon me-2" href="#"
+                    target="_blank">
+                    <i class="fa fa-github me-1"></i>
+                    <p class="d-inline text-sm z-index-1 font-weight-bold" data-bs-toggle="tooltip"
+                      data-bs-placement="bottom" title="Star us on Github">Github</p>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <header>
+    <div class="page-header min-vh-75 relative" style="background-image: url({{url_for('static',filename='img/bg.jpg')}})">
+      <span class="mask bg-gradient-primary opacity-4"></span>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white pt-3 mt-n5">JCP HELPER API</h1>
+            <p class="lead text-white mt-3">Obtenga una gran variedad de preguntas, en diferentes temas para la realización
+              de pruebas diagnosticas en los lenguajes de programación Java, C y Python </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+    <section class="pt-3 pb-4" id="count-stats">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 mx-auto py-3">
+            <div class="row">
+              <div class="col-md-4 position-relative">
+                <div class="p-3 text-center">
+                  <h1 class="text-primary"><i class="fab fa-brands fa-java"></i></h1>
+                  <h5 class="mt-3">Java</h5>
+                  <p class="text-sm font-weight-normal">Es un lenguaje de programación y 
+                    una plataforma informática que fue comercializada por primera vez en 1995 
+                    por Sun Microsystems</p>
+                </div>
+                <hr class="vertical dark">
+              </div>
+              <div class="col-md-4 position-relative">
+                <div class="p-3 text-center">
+                  <h1 class="text-primary">C</i></h1>
+                  <h5 class="mt-3">Lenguaje C</h5>
+                  <p class="text-sm font-weight-normal">Es un lenguaje de programación de propósito general​ originalmente desarrollado por Dennis Ritchie 
+                    entre 1969 y 1972 en los Laboratorios Bell
+                  </p>
+                </div>
+                <hr class="vertical dark">
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 text-center">
+                  <h1 class="text-primary"><i class="fab fa-brands fa-python"></i></h1>
+                  <h5 class="mt-3">Python</h5>
+                  <p class="text-sm font-weight-normal">Es un lenguaje de alto nivel de programación interpretado cuya filosofía hace hincapié en la legibilidad de su código, 
+                    se utiliza para desarrollar aplicaciones de todo tipo.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="my-5 py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4">
+            <div class="rotating-card-container">
+              <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5">
+                <div class="front front-background">
+                  <div class="card-body py-7 text-center">
+                    <i class="material-icons text-white text-4xl my-3">touch_app</i>
+                    <h3 class="text-white">Mire todas  <br /> Las preguntas</h3>
+                    <p class="text-white opacity-8">Vea todas las preguntas de los diferentes lenguajes que tenemos para usted
+                      en esta API.</p>
+                  </div>
+                </div>
+                <div class="back back-background">
+                  <div class="card-body pt-7 text-center">
+                    <h3 class="text-white">JCP HELPER APP</h3>
+                    <p class="text-white opacity-8"> Acceda a nuestra versión beta de la aplicación.</p>
+                    <a href="#" target="_blank"
+                      class="btn btn-white btn-sm w-50 mx-auto mt-3">Acceder</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 ms-auto">
+            <div class="row justify-content-start">
+              <div class="col-md-6">
+                <div class="info">
+                  <i class="fas fa-solid fa-file-code fa-2x"></i>
+                  <h5 class="font-weight-bolder mt-3">Documentación</h5>
+                  <p class="pe-5">Miré como hacer peticiones get y post en la API.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info">
+                  <i class="fab fa-brands fa-github fa-2x"></i>
+                  <h5 class="font-weight-bolder mt-3">Código</h5>
+                  <p class="pe-3">Acceda al repositorio de la API en Github.</p>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-start mt-5">
+              <div class="col-md-6 mt-3">
+                <i class="fas fa-solid fa-money-bill fa-2x"></i>
+                <h5 class="font-weight-bolder mt-3">Gratis</h5>
+                <p class="pe-5">Puede hacer uso de la API y derivados de manera gratuita.</p>
+              </div>
+              <div class="col-md-6 mt-3">
+                <div class="info">
+                  <i class="fas fa-solid fa-mobile fa-2x"></i>
+                  <h5 class="font-weight-bolder mt-3">Mobile first</h5>
+                  <p class="pe-3">Diseño adaptable a diferentes dispositivos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container mt-sm-5">
+      <div class="page-header py-6 py-md-5 my-sm-3 mb-3 border-radius-xl"
+        style="background-image: url('https://gdx-group.com/wp-content/uploads/2022/02/trazabilidad-de-la-documentacion.jpg');"
+        loading="lazy">
+        <span class="mask bg-gradient-dark"></span>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6 ms-lg-5">
+              <h1 class="text-white">Documentación completa</h1>
+              <p class="lead text-white opacity-8">Elaborada con ayuda de Postman, acceda y vea como realizar los diferentes tipos
+                de peticiones en la API, en diferentes lenguajes paso por paso.
+              </p>
+              <a href="#"
+                class="text-white icon-move-right">
+                Leer docs.
+                <i class="fas fa-arrow-right text-sm ms-1"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <footer class="footer pt-5 mt-5">
+      <div class="container">
+        <div class=" row">
+          <div class="col-lg-10">
+              <ul class="d-flex flex-row nav contact">
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#" target="_blank">
+                    <i class="fab fa-facebook text-lg opacity-8"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#" target="_blank">
+                    <i class="fab fa-twitter text-lg opacity-8"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#" target="_blank">
+                    <i class="fab fa-dribbble text-lg opacity-8"></i>
+                  </a>
+                </li>
+
+
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#" target="_blank">
+                    <i class="fab fa-github text-lg opacity-8"></i>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link pe-1" href="#"
+                    target="_blank">
+                    <i class="fab fa-youtube text-lg opacity-8"></i>
+                  </a>
+                </li>
+              </ul>
+          </div>
+          <div class="col-12">
+            <div class="text-center">
+              <p class="text-dark my-4 text-sm font-weight-normal">
+                All rights reserved ©
+                <script>document.write(new Date().getFullYear())</script> Coded with 💖 <a
+                  href="#" target="_blank">JCP Helper Team</a>.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+
+      if (document.getElementById('state1')) {
+        const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+        if (!countUp.error) {
+          countUp.start();
+        } else {
+          console.error(countUp.error);
+        }
+      }
+      if (document.getElementById('state2')) {
+        const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+        if (!countUp1.error) {
+          countUp1.start();
+        } else {
+          console.error(countUp1.error);
+        }
+      }
+      if (document.getElementById('d')) {
+        const countUp2 = new CountUp('d', document.getElementById("d").getAttribute("countTo"));
+        if (!countUp2.error) {
+          countUp2.start();
+        } else {
+          console.error(countUp2.error);
+        };
+      }
+    </script>
+{% endblock %}
