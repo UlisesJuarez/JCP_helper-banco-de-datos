@@ -12,18 +12,10 @@ db=SQLAlchemy(app)
 
 class Prueba(db.Model):
     __tablename__="Cuestionarios"
-    # idPregunta=db.Column(db.Integer,primary_key=True,unique=True,nullable=False)
-    # enunciado=db.Column(db.String(500),nullable=False)
-    # autor=db.Column(db.String(200))
-    # fecha=db.Column(db.String(20),nullable=False)#2022-06-18
-    # tema=db.Column(db.String(250))
-    # tipo_pregunta=db.Column(db.String(100),nullable=False)
-    # lenguaje=db.Column(db.String(50),nullable=False)
-    # opciones=db.Column(db.String(800))
-    # respuesta=db.Column(db.String(800),nullable=False)
 
     idCuestionario=db.Column(db.Integer,primary_key=True,unique=True,nullable=False)
-    autor=db.Column(db.String(200))
+    titulo=db.Column(db.String(100),nullable=False)
+    autor=db.Column(db.String(200),)
     temas=db.Column(db.String(100),nullable=False)
     fecha=db.Column(db.String(20),nullable=False)#2022-06-18
     tipo=db.Column(db.String(50),nullable=False)
@@ -38,7 +30,7 @@ class Prueba(db.Model):
             dictionary[column.name] = getattr(self, column.name)
         return dictionary
 
-db.create_all()
+#db.create_all()
 
 
 @app.route("/cuestionarios", methods=["GET"])
@@ -68,6 +60,7 @@ def cuestionario_post():
     try:
         now=datetime.datetime.now()
         nuevo_cuestionario = Prueba(
+            titulo=request.args.get("titulo"),
             autor=request.args.get("autor"),
             temas= request.args.get("temas"),
             fecha=now.date(),
