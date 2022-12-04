@@ -1,4 +1,4 @@
-from flask import Flask,url_for,render_template,request,jsonify
+from flask import Flask,render_template,request,jsonify
 from flask_sqlalchemy import SQLAlchemy
 import datetime
 
@@ -52,6 +52,20 @@ def cuestionarios():
         else:
             return jsonify(response={"Not found": "Aún no hay cuestionarios registradas."})
 
+
+@app.route("/cuestionario_titulo",methods=["GET"])
+def cuestionario_titulo():
+    query_titulo=request.args.get("titulo").lower()
+    search=f"%{query_titulo}%"
+
+    if query_titulo:
+        cuestionarios=db.session.query(Prueba).filter(Prueba.titulo.like(search)).all()
+        if cuestionarios:
+            return jsonify(cuestionarios=[cuestionario.to_dict() for cuestionario in cuestionarios])
+        else:
+            return jsonify(response={"Not found":"No hay cuestionarios para ese criterio de busqueda"})
+    else:
+        return jsonify(response={"Error":"Ho haz ingresado un criterio de busqueda"})
 
 
 
