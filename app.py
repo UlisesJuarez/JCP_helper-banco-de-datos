@@ -68,6 +68,19 @@ def cuestionario_titulo():
         return jsonify(response={"Error":"Ho haz ingresado un criterio de busqueda"})
 
 
+@app.route("/cuestionario_id",methods=["GET"])
+def cuestionario_id():
+    query_id=request.args.get("id")
+    
+    if query_id:
+        cuestionario=db.session.query(Prueba).filter_by(idCuestionario=query_id).all()
+        if cuestionario:
+            return jsonify(cuestionario=[item.to_dict() for item in cuestionario])
+        else:
+            return jsonify(response={"Not found":"No existe un cuestionario con ese id"})
+    else:
+        return jsonify(response={"Error":"No haz ingresado un criterio de busqueda"})
+
 
 @app.route("/nuevo_cuestionario", methods=["POST"])
 def cuestionario_post():
